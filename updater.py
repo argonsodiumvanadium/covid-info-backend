@@ -126,52 +126,5 @@ def parseATS (path):
 	with open("./API/AmbulanceTaxi.json","x") as file:
 		json.dump(data,file)
 
-def parseO2(path):
-	data = open(path,"r+").read()
-	soup = BeautifulSoup(data, 'html.parser')
-
-	rows = soup.find_all("tr")
-
-	itr = 5
-
-	rows = rows[5:]
-	rows = rows[::-1]
-
-	data = []
-
-	itr = 0
-
-	for row in rows :
-		cells = row.find_all("td")
-
-		vendor = cells[0].text
-		address = cells[1].text
-		telephone = cells[2].text
-		information = cells[3].text
-
-		print(cells[0].attrs)
-
-		status = ""
-
-		if area == "":
-			area = address
-
-		if "VERIFIED" in verification.upper():
-			verified = True
-
-		data.append({
-			"area" : area,
-			"service" : service,
-			"address" : address,
-			"telephone" : telephone,
-			"information" : information,
-			"verification" : verification,
-			"verified" : verified
-
-		})
-
-		itr = itr + 1
-
-
 
 main()
