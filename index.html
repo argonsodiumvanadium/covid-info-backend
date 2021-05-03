@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>covid</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+</head>
+<body>
+	<nav class="navbar is-transparent" style="padding: 1rem 5rem;background-color: #eee">
+	  <div class="navbar-brand">
+	    <a class="navbar-item" href="/">
+	      <h1>COVID information</h1>
+	    </a>
+	    <div class="navbar-burger" data-target="navbarExampleTransparentExample">
+	      <span></span>
+	      <span></span>
+	      <span></span>
+	    </div>
+	  </div>
+
+	  <div id="navbarExampleTransparentExample" class="navbar-menu">
+	    <div class="navbar-start">
+	    	<div class="navbar-item has-dropdown is-hoverable">
+				<a class="navbar-link">
+				RESOURCES
+				</a>
+
+				<div class="navbar-dropdown">
+					<a class="navbar-item resource">
+						Ambulances
+					</a>
+					<!--<a class="navbar-item resource">
+						Oxygen
+					</a>
+					<a class="navbar-item resource">
+						Plasma
+					</a>
+					<a class="navbar-item resource">
+						Beds
+					</a>
+					<a class="navbar-item resource">
+						RTPCR
+					</a>
+					<a class="navbar-item resource">
+						Vaccination
+					</a>
+					<a class="navbar-item resource">
+						Doctors
+					</a>
+					<a class="navbar-item resource">
+						Psychologists
+					</a>
+					<a class="navbar-item resource">
+						Cremation Mortuary
+					</a>
+					<a class="navbar-item resource">
+						Medicines
+					</a>
+					<a class="navbar-item resource">
+						Home ICU
+					</a>
+					<a class="navbar-item resource">
+						Food Tiffin Services
+					</a>
+					<hr class="navbar-divider">
+					<a class="navbar-item">
+					Report an issue
+					</a>-->
+				</div>
+			</div>
+	      <!--<a class="navbar-item" href="https://bulma.io/">
+	        MAP
+	      </a>-->
+	      </div>
+	    </div>
+
+	    <div class="navbar-end">
+	      <div class="navbar-item">
+	        <div class="field is-grouped">
+	          <p class="control">
+	            <a class="button is-primary" href="https://github.com/jgthms/bulma/releases/download/0.9.2/bulma-0.9.2.zip">
+	              <span class="icon">
+	                <i class="fas fa-success"></i>
+	              </span>
+	              <span>SHARE</span>
+	            </a>
+	          </p>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</nav>
+
+	<div class="columns" style="margin:5rem">
+		<div id="heading" class="column is-8" style="font-size: 5rem">COVID - 19 emergency information</div>
+		<img id="image" src="">
+	</div>
+
+	<!--<div class="columns" style="margin:1rem 5rem">
+		<div class="column is-10">
+			<input class="input" type="text" placeholder="SEARCH KEYWORDS">
+		</div>
+		<div class="column is-2">
+			<button class="button is-success is-fullwidth">
+				search
+			</button>
+		</div>
+		
+	</div>-->
+
+	<div class="columns is-multiline" id="main" style="margin:1rem 5rem">
+		<div class="column is-4 resource">
+			<button class="button is-info is-fullwidth resource">
+				Ambulances
+			</button>
+		</div>
+	</div>
+	
+	<div id="scraper" style="display:none"></div>
+
+	<script type="text/javascript" src="./index.js"></script>
+</body>
+</html>
