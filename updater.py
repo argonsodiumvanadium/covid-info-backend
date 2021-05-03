@@ -24,8 +24,6 @@ def main ():
 		for file in HTMLfiles :
 			if "Ambulance.html" in file:
 				parseATS(file)
-			elif "Oxygen.html" in file:
-				parseO2(file)
 
 		print("updating done, sleeping for an hour")
 		sleep(3600)
