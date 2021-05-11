@@ -17,7 +17,7 @@ def main ():
 
 		mypath = "./rawHTML"
 		API_path = "./API"
-		updateRawHTML(mypath,API_path)
+		updateRawHTML(mypath)
 
 		HTMLfiles = [join(mypath,f) for f in listdir(mypath) if isfile(join(mypath, f))]
 
@@ -26,11 +26,10 @@ def main ():
 				parseATS(file)
 
 		print("updating done, sleeping for an hour")
-		sleep(3600)
+		sleep(60)
 
-def updateRawHTML (path,API_path):
+def updateRawHTML (path):
 	emptyDir(path)
-	emptyDir(API_path)
 
 	getunzipped("https://docs.google.com/spreadsheets/d/16-UdbV7hX7vRVxT2EVHDjXscaAnE5QKTjG-7JIFdOHM/export?format=zip&id=16-UdbV7hX7vRVxT2EVHDjXscaAnE5QKTjG-7JIFdOHM",path)
 
@@ -81,47 +80,28 @@ def parseATS (path):
 
 	itr = 5
 
-	rows = rows[5:]
+	allparams = rows[10]
+
+	rows = rows[11:]
 	rows = rows[::-1]
 
 	data = []
-
-	itr = 0
-
-	for row in rows :
+	
+	for row in rows:
 		cells = row.find_all("td")
+		params = allparams.find_all("td")
 
-		area = cells[0].tect
-		service = cells[1].text
-		address = cells[2].text
-		telephone = cells[3].text
-		information = cells[4].text
-		verification = cells[5].text
-		verified = False
+		instance = {"verified" : False}
 
-		if verification == "":
-			continue
+		for (cell,param) in zip (cells,params) :
+			instance[param.text.lower()] = cell.text
 
-		if area == "":
-			area = address
+			if "VERIFIED" in cell.text.upper():
+				instance["verified"] = True
+		data.append(instance)
 
-		if "VERIFIED" in verification.upper():
-			verified = True
 
-		data.append({
-			"area" : area,
-			"service" : service,
-			"address" : address,
-			"telephone" : telephone,
-			"information" : information,
-			"verification" : verification,
-			"verified" : verified
-
-		})
-
-		itr = itr + 1
-
-	with open("./API/AmbulanceTaxi.json","x") as file:
+	with open("./API/AmbulanceTaxi.json","w+") as file:
 		json.dump(data,file)
 
 
