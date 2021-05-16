@@ -76,7 +76,7 @@ renderAmblanceTaxiPage = async () => {
 			delete el["telephone"]
 
 			HTML +=`
-				<div class="column is-4" separator="${sep}">
+				<div class="column is-4-desktop" separator="${sep}">
 					<div class="notification" separator="${time}">
 						<h1><strong>${el["distributor name"]}</strong></h1>
 						<h3>${telephoneText}</h3>
@@ -157,7 +157,7 @@ arrangeBy = (parent,filter) => {
 		array = locationMap[loc]
 
 		holder = document.createElement("div")
-		holder.className = "columns column is-12 is-multiline"
+		holder.className = "columns column is-12 is-multiline is-desktop"
 		holder.innerHTML = `
 			<h1 class="is-size-1 column is-12">${loc}</h1><br>
 		`
