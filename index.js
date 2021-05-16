@@ -1,4 +1,4 @@
-SERVER_IP = "/"
+SERVER_IP = "http://ec2-13-233-174-21.ap-south-1.compute.amazonaws.com/covid/"
 
 
 
